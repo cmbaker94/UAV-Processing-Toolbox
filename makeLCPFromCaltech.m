@@ -23,7 +23,7 @@ end
 if ~strcmp(calib_resultsPn(end),filesep)
     calib_resultsPn = [calib_resultsPn,filesep];
 end
-load([calib_resultsPn,'\Calib_Results.mat'])
+load([calib_resultsPn,filesep,'Calib_Results.mat'])
 
             lcp.NU = nx;     % number of pixel columns
             lcp.NV = ny;     % number of pixel rows
