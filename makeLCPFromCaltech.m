@@ -38,7 +38,7 @@ load([calib_resultsPn,filesep,'Calib_Results.mat'])
             lcp.t2 = kc(4);
             
             % radial stretch factor for lens distortion
-            lcp.r = 0:0.001:1.5;    
+            lcp.r = 0:0.01:2;    
             lcp = makeRadDist(lcp);
             
             % tangential distortion over an expected domain x and y
