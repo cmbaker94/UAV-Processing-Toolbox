@@ -9,7 +9,11 @@ function lcp = makeRadDist(lcp)
 % updated from previous version to reflect that this need only be computed
 % once for any lcp, so should be stored in the lcp.
 
-r = [0: 0.01: 2];   % max tan alpha likely to see.
+if ~isfield(lcp,'r') % only hard code in r if there is not a value already listed
+    display('max tan alpha set to dafault: r = [0:0.01:2];')
+    lcp.r = [0: 0.01: 2];   % max tan alpha likely to see.
+end
+r  = lcp.r; 
 r2 = r.*r;
 fr = 1 + lcp.d1*r2 + lcp.d2*r2.*r2 + lcp.d3*r2.*r2.*r2;
 

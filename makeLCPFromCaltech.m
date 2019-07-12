@@ -36,10 +36,20 @@ load([calib_resultsPn,filesep,'Calib_Results.mat'])
             lcp.d3 = kc(5);
             lcp.t1 = kc(3);         % tangential distortion coefficients
             lcp.t2 = kc(4);
-            lcp.r = 0:0.001:1.5;    % for processing disortion
+            
+            % radial stretch factor for lens distortion
+            lcp.r = 0:0.001:1.5;    
             lcp = makeRadDist(lcp);
+            
+            % tangential distortion over an expected domain x and y
+            xmax = 1.5;   % This is taken from the Caltech cam cal docs.  
+            dx = 0.1;
+            ymax = 1.3;
+            dy = 0.1;
+            lcp.x = -xmax: dx: xmax;
+            lcp.y = -ymax: dy: ymax;
             lcp = makeTangDist(lcp);    % add tangential dist template
-
+end
 %
 %   Copyright (C) 2017  Coastal Imaging Research Network
 %                       and Oregon State University

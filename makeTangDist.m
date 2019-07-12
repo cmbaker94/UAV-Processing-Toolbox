@@ -5,14 +5,6 @@ function lcp = makeTangDist(lcp)
 %  in tan(alpha) coords that can be used for an interp2 for any required
 %  set of x,y values
 
-% This is taken from the Caltech cam cal docs.  
-xmax = 1.5;     % no idea if this is good
-dx = 0.1;
-ymax = 1.3;
-dy = 0.1;
-
-lcp.x = -xmax: dx: xmax;
-lcp.y = -ymax: dy: ymax;
 [X,Y] = meshgrid(lcp.x,lcp.y);
 X = X(:); Y = Y(:);
 r2 = X.*X + Y.*Y;
