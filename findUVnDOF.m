@@ -38,7 +38,8 @@ if length(b)<6      % there are some knowns
     b2(find(~globs.knownFlags)) = b;
     lcp = globs.lcp;
 else
-    b2 = b;     % fully 6 dof input beta
+    b2              = b;     % fully 6 dof input beta
+    globs.knowns    = [];
 end
 lcp = globs.lcp;
 

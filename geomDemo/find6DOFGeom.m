@@ -42,8 +42,13 @@ for i = 1: nGcps
     zoom out
 end
 beta = nlinfit(xyz,[UV(:,1); UV(:,2)],'findUVnDOF',in.beta0);
-beta6DOF(find(globs.knownFlags)) = globs.knowns;
-beta6DOF(find(~globs.knownFlags)) = beta;
+if ~isempty(globs.knowns)
+    beta6DOF(find(globs.knownFlags)) = globs.knowns;
+    beta6DOF(find(~globs.knownFlags)) = beta;
+elseif isempty(globs.knowns) % if all values are unknown
+    beta6DOF = beta;
+end
+end
 
 
 %   Copyright (C) 2017  Coastal Imaging Research Network
